@@ -211,6 +211,36 @@ if __name__ == '__main__':
     print(path)
     print(total_cost)
 
-    path, cost = simulated_annealing(graph, heuristic, "Arad", "Bucharest")
-    print(path)
-    print(cost)
+    graph = {
+        "A": [("B", 1), ("C", 4)],
+        "B": [("A", 1), ("C", 2), ("D", 5)],
+        "C": [("A", 4), ("B", 2), ("D", 1)],
+        "D": []
+    }
+
+    heuristic = {
+        "A": 4,
+        "B": 3,
+        "C": 1,
+        "D": 0
+    }
+
+    start = "A"
+    goal = "D"
+
+    best_path, best_cost = simulated_annealing(
+        graph,
+        heuristic,
+        start,
+        goal,
+        T=100,
+        cooling=0.9,
+        Tmin=0.01
+    )
+
+    print(best_path)
+    print(best_cost)
+
+    # path, cost = simulated_annealing(graph, heuristic, "Arad", "Bucharest")
+    # print(path)
+    # print(cost)
