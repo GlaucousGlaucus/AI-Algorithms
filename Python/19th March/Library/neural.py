@@ -7,11 +7,11 @@ X = iris.data
 Y = iris.target
 
 model = MLPClassifier(
-    hidden_layer_sizes=(9,),
+    hidden_layer_sizes=(13,),
     activation="relu",
     solver="adam",
-    learning_rate_init=0.5,
-    max_iter=500
+    learning_rate_init=0.001,
+    max_iter=1000
 )
 
 model.fit(X, Y)
@@ -19,4 +19,3 @@ model.fit(X, Y)
 y_pred = model.predict(X)
 
 print("Accuracy:", round(accuracy_score(Y, y_pred) * 100, 2), "%")
-print("\nConfusion Matrix:\n", confusion_matrix(Y, y_pred))
