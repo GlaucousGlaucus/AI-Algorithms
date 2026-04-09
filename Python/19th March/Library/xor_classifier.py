@@ -12,11 +12,11 @@ Y = [
 ]
 
 model = MLPClassifier(
-    hidden_layer_sizes=(2,),
+    hidden_layer_sizes=(3,),
     activation="tanh",
     solver="adam",
     learning_rate_init=0.01,
-    max_iter=1000
+    max_iter=8000
 )
 
 model.fit(X, Y)
