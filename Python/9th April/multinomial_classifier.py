@@ -11,7 +11,7 @@ Y = iris.target
 
 scaler = MinMaxScaler()
 X_scaled = scaler.fit_transform(X)
-X_counts = (X_scaled * 10).astype(int)
+X_counts = np.round(X_scaled * 10).astype(int)
 
 X_train, X_test, Y_train, Y_test = train_test_split(
     X_counts, Y, test_size=0.2, random_state=42
