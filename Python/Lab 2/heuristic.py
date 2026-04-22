@@ -124,7 +124,9 @@ def best_first(graph, heuristic, start, goal):
 
         for neighbor, _ in graph[current]:
             if neighbor not in closed:
-                open_list.append((neighbor, path + [neighbor]))
+                open_list.append(
+                    (neighbor, path + [neighbor])
+                )
 
     return None
 
@@ -190,8 +192,7 @@ def simulated_annealing(graph, heuristic, start, goal,
             break
 
         candidate = random.choice(next_nodes)
-        g = path_cost(candidate)
-        f = g + heuristic[candidate[-1]]
+        f = path_cost(candidate) + heuristic[candidate[-1]]
 
         delta = f - current_cost
         if delta < 0 or random.random() < math.exp(-delta / T):
